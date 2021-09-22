@@ -7,6 +7,8 @@ require('./utils/passport_config')
 require('express-async-errors')
 const authRouter = require('./controllers/auth')
 const reportRouter = require('./controllers/report')
+const userRouter = require('./controllers/users')
+
 // const sectionRouter = require('./controllers/section')
 // const passRouter = require('./controllers/pass')
 const cors = require('cors')
@@ -30,7 +32,7 @@ app.use(express.static('build'))
 // }
 
 app.use(cookieSession({
-    name: 'mrcfbsesh',
+    name: 'mrcfbseshion',
     maxAge: 24 * 60 * 60 * 1000,
     keys: [process.env.COOKIE_KEY]
 }))
@@ -55,6 +57,8 @@ app.use(morgan((tokens, req, res) => {
 
 app.use('/auth', authRouter)
 app.use('/api/report', reportRouter)
+app.use('/api/user', userRouter)
+
 
 app.get('/', (req, res, next) => {
     res.send('<h1>herro</h1>')

@@ -1,7 +1,10 @@
 $main-black: #0f1010;
 $main-grey: #191b1b;
 $font_famiry: "Montserrat", sans-serif;
-
+$nav_width: 300px;
+$intranet_blue: #2b7cff;
+$intranet_green: #65b53d;
+$intranet_red: #ff603d;
 * {
     box-sizing: border-box;
 }
@@ -13,6 +16,17 @@ body {
     overflow-x: hidden;
     color: $main-black;
 }
+.app-wrapper {
+    .app {
+        display: grid;
+        width: 100vw;
+        min-height: 100vh;
+        grid-template-columns: $nav_width auto;
+        grid-template-rows: auto;
+    }
+}
+
+
 .img-fluid {
     max-width: 100%;
     height: auto;

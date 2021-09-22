@@ -3,17 +3,17 @@ const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
 const pool = require('./db')
 
-passport.serializeUser((user, cb) => {
-    console.log('serialize user:', user)
-    console.log(user.id)
-    cb(null, user.id)
+passport.serializeUser((profile, cb) => {
+    console.log('serialize user:', profile)
+    console.log(profile.id)
+    cb(null, profile.id)
 })
 
 
 passport.deserializeUser(async (id, cb) => {
     let conn
     let user
-    console.log('hello from deserializeUser')
+    console.log('hello from deserializeUser. id: ', id)
     try {
         conn = await pool.getConnection()
         user = await conn.query(`SELECT * FROM users WHERE fbid = '${id}'`)
@@ -35,8 +35,6 @@ passport.deserializeUser(async (id, cb) => {
 
 // const localhost = process.env.NODE_ENV === 'dev' ? '' : ''
 
-console.log(process.env.FB_APP_ID)
-console.log(process.env.FB_APP_SECRET)
 // console.log(`${localhost}/auth/facebook/redirect`)
 
 
@@ -49,7 +47,7 @@ passport.use(new FacebookStrategy(
         clientID: process.env.FB_APP_ID,
         clientSecret: process.env.FB_APP_SECRET,
         callbackURL: 'https://0f60-8-18-52-2.ngrok.io/auth/facebook/redirect',
-        profileFields: ['id', 'emails', 'name']
+        profileFields: ['id', 'emails', 'name'],
     },
     async (accessToken, refreshToken, profile, done) => {
         console.log(profile._json)

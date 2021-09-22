@@ -16,6 +16,8 @@ const fbGraphURL = 'https://graph.facebook.com/v12.0'
 
 reportRouter.post('/', async (req, res) => {
 
+    console.log('req.user', req.user)
+
 
     const [beginingDate, endDate] = req.body
 
@@ -29,6 +31,7 @@ reportRouter.post('/', async (req, res) => {
     const linkMap = new Map()
 
     await Promise.all(pageIds.map(async pageId => {
+        console.log(pageId)
         //first lets get the page access token
         let response = await axios.get(`${fbGraphURL}/${pageId}`, {
             params: {

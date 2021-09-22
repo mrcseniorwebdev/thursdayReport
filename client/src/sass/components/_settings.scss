@@ -1,0 +1,88 @@
+.settings--wrapper {
+    padding: 2rem 3rem 2rem 2rem;
+    .settings {
+        .users {
+            background: #272929;
+            padding: 2rem;
+            border-radius: 1rem;
+            h1 {
+                margin: 0;
+                margin-bottom: 1.5rem;
+                color: rgba(255, 255, 255, 1);
+            }
+            p {
+                margin: 0;
+                margin-bottom: 2rem;
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 0.8rem;
+            }
+            &--grid {
+                display: grid;
+                grid-template-rows: repeat(5, 2rem);
+                grid-auto-flow: column;
+                grid-template-columns: repeat(4, 1fr);
+                // grid-template-rows: 2rem;
+                row-gap: 1rem;
+                column-gap: 2rem;
+
+                margin-bottom: 2rem;
+                &--user {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    p {
+                        color: rgba(255, 255, 255, 1);
+                        font-size: 1rem;
+                        margin: 0;
+                    }
+                    button {
+                        outline: none;
+                        border: none;
+                        background: none;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                        &:hover {
+                            svg {
+                                opacity: 0.5;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &--newuser {
+                display: flex;
+                align-items: stretch;
+                input {
+                    font-size: 1rem;
+                    padding: 0.3em 0.5em;
+                    outline: none;
+                    margin: 0;
+                }
+                button {
+                    background: $intranet_green;
+                    color: white;
+                    font-size: 1rem;
+                    display: flex;
+                    align-items: center;
+                    font-weight: bold;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    &:hover {
+                        background: darken($intranet_green, 5%);
+                    }
+                    svg {
+                        width: 16px;
+                        margin-right: 0.5rem;
+                        path {
+                            fill: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

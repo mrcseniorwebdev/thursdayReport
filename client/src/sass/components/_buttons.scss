@@ -1,0 +1,97 @@
+.greenStrokeBtn {
+    // border: none;
+    position: relative;
+    background: $main-grey;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $intranet_green;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid $intranet_green;
+
+
+    svg {
+        margin-right: 1rem;
+    }
+    // &::after {
+    //     position: absolute;
+    //     $borderSize: 2px;
+    //     top: -$borderSize;
+    //     bottom: -$borderSize;
+    //     left: -$borderSize;
+    //     right: -$borderSize;
+    //     background: linear-gradient(93.09deg, #65b53d 0%, #184800 100%);
+    //     content: "";
+    //     z-index: -1;
+    //     border-radius: 35px; 
+    // }
+}
+.blueFillBtn {
+    border: none;
+    background: linear-gradient(272.98deg, #4900c0 0%, #2b7cff 100%);
+
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    outline: none;
+    svg {
+        margin-right: 1rem;
+    }
+}
+.redStrokeLink {
+    border: none;
+    position: relative;
+    background: $main-grey;
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $intranet_red;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    border: 2px solid $intranet_red;
+    text-decoration: none;
+    svg {
+        margin-right: 1rem;
+    }
+    // &::after {
+    //     position: absolute;
+    //     $borderSize: 3px;
+    //     top: -$borderSize;
+    //     bottom: -$borderSize;
+    //     left: -$borderSize;
+    //     right: -$borderSize;
+    //     content: "";
+    //     z-index: -1;
+    //     border-radius: 35px;
+
+    // }
+}
+
+.greenFillBtn {
+    border: none;
+    background: linear-gradient(277.5deg, #184800 17.98%, #65B53D 97.04%);
+
+    border-radius: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    outline: none;
+    svg {
+        margin-right: 1rem;
+    }
+}

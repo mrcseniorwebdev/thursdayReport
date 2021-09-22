@@ -11,4 +11,4 @@ create table if not exists users (
     access_token varchar(255),
     PRIMARY KEY (uid)
 );
-INSERT INTO users (email) VALUES ('mrcmarketing@mrc.org');
+-- INSERT INTO users (email) VALUES ('mrcmarketing@mrc.org');
