@@ -1,0 +1,65 @@
+.login--wrapper {
+    overflow: hidden;
+    .login {
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        .harryLogo {
+            bottom: -4em;
+            right: 0;
+            position: absolute;
+        }
+        display: grid;
+        grid-template-columns: 60% auto;
+        grid-template-rows: auto;
+        .left-col {
+            display: flex;
+            justify-content: center;
+            .left-col-items {
+                margin-top: 10em;
+                h1 {
+                    font-weight: bold;
+                    font-size: 6em;
+                    color: #2b7cff;
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0;
+                    margin-bottom: 0.2em;
+                    line-height: 1em;
+                }
+                p {
+                    color: #494a4a;
+                    font-weight: bold;
+                    margin: 0;
+                    font-size: 2.2em;
+                    margin-bottom: 3em;
+                }
+                a {
+                    background-color: white;
+                    color: #494a4a;
+                    padding: 1.1em 1.4em;
+                    // font-weight: bold;
+                    font-size: 1.3em;
+                    text-decoration: none;
+                    display: inline-flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    svg{
+                        margin-right : 2rem;
+                    }
+                    
+                }
+                
+            }
+        }
+        .right-col {
+            background-color: $main-grey;
+            .right-col-items {
+                display: flex;
+                justify-content: center;
+                margin-top: 10em;
+                // margin-right: 10em;
+            }
+        }
+    }
+}

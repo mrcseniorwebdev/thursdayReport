@@ -1,0 +1,34 @@
+$main-black: #0f1010;
+$main-grey: #191b1b;
+$font_famiry: "Montserrat", sans-serif;
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: $main-black;
+    font-family: $font_famiry;
+    overflow-x: hidden;
+    color: $main-black;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.hoverAnim {
+    $time: .4s;
+    transition: all $time;
+    svg {
+        transition: all $time;
+    }
+    &:hover {
+        $dist: 0.1rem;
+        transform: translate($dist, -$dist);
+        svg {
+            transform: scale(1.1);
+        }
+    }
+}

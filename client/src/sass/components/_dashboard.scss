@@ -1,0 +1,37 @@
+.app-wrapper{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .app{
+        background: white;
+        padding: 5rem;
+        button{
+            padding: .5rem 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: .5rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        &--report{
+            display: grid;
+            row-gap: 1rem;
+            &--item{
+                display: grid;
+                row-gap: .5rem;
+                h3{
+                    color: #417726;
+                    margin: 0;
+                }
+                p{
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
