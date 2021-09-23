@@ -1,16 +1,15 @@
 const userRouter = require('express').Router()
 const pool = require('../utils/db')
-// const { authCheck } = require('../utils/authMiddleware')
+const { authCheck } = require('../utils/authMiddleware')
 
 
 
-// userRouter.use(authCheck)
+userRouter.use(authCheck)
 
 /*
  * return all
  */
 userRouter.get('/', async (req, res) => {
-    console.log('req.user', req.user)
     let users
     let conn
     try {

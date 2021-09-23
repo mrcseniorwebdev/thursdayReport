@@ -46,7 +46,7 @@ passport.use(new FacebookStrategy(
     {
         clientID: process.env.FB_APP_ID,
         clientSecret: process.env.FB_APP_SECRET,
-        callbackURL: 'https://0f60-8-18-52-2.ngrok.io/auth/facebook/redirect',
+        callbackURL: 'https://thursday.mrc.org/auth/facebook/redirect',
         profileFields: ['id', 'emails', 'name'],
     },
     async (accessToken, refreshToken, profile, done) => {

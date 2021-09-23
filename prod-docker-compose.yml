@@ -1,0 +1,110 @@
+version: "3"
+
+services:
+#         client:
+#         build:
+#         context: ./client
+#      dockerfile: Dockerfile.dev
+#    ports:
+#      - 3000:3000
+#    volumes:
+#      - ./client:/client
+#      - /client/node_modules
+#
+#    command: npm start
+#    restart: always
+#    tty: true
+#    networks:
+#      - webappnetwork
+#    depends_on:
+#      - server
+#
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    container_name: server
+    #ports:
+    #  - 3001:3001
+    # volumes:
+    #   - ./server:/server
+    # - ./client/public:/client/public
+    command: npm run start
+    env_file: ./server/.env
+    volumes:
+      - ./server:/server
+    restart: always
+    tty: true
+    networks:
+      - webappnetwork
+    depends_on:
+      - db
+
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test_db
+
+    command: "mysqld --init-file /data/application/init.sql"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - ./db_init/init.sql:/data/application/init.sql
+
+    tty: true
+    ports:
+      - 33306:3306
+    networks:
+      - webappnetwork
+
+  webserver:
+    image: nginx:mainline-alpine
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - webrootfiles:/var/www/html
+      - ./nginx-conf:/etc/nginx/conf.d
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - dhparam:/etc/ssl/certs
+    depends_on:
+      - server
+    networks:
+      - webappnetwork
+  
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - webrootfiles:/var/www/html
+    depends_on:
+      - webserver
+    command: certonly --webroot --webroot-path=/var/www/html --email webdev@mrc.org --agree-tos --no-eff-email --force-renewal -d thursday.mrc.org  -d www.thursday.mrc.org
+
+networks:
+  webappnetwork:
+    driver: bridge
+
+volumes:
+  mariadb-data:
+  certbot-etc:
+  certbot-var:
+  webrootfiles:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/ubuntu/thursdayReport/client/build/
+      o: bind
+  dhparam:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/ubuntu/thursdayReport/dhparam/
+      o: bind
+

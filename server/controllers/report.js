@@ -1,8 +1,8 @@
 const reportRouter = require('express').Router()
 const axios = require('axios')
-// const { authCheck } = require('../utils/authMiddleware')
+const { authCheck } = require('../utils/authMiddleware')
 const { getToken } = require('../utils/utils')
-// reportRouter.use(authCheck)
+reportRouter.use(authCheck)
 
 const getUrl = fburl => {
     //use regex to extract the url from the attachment
@@ -15,8 +15,6 @@ const getUrl = fburl => {
 const fbGraphURL = 'https://graph.facebook.com/v12.0'
 
 reportRouter.post('/', async (req, res) => {
-
-    console.log('req.user', req.user)
 
 
     const [beginingDate, endDate] = req.body

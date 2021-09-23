@@ -53,7 +53,7 @@ const Login = () => {
                     <div className="left-col-items">
                         <h1 id="mainText"><span>THURSDAY</span><span>REPORT</span></h1>
                         <p id="subText">Save time</p>
-                        <a id="signIn" className="hoverAnim" href={`https://0f60-8-18-52-2.ngrok.io/auth/facebook`}><FBSvg /><span>Sign In with Facebook</span></a>
+                        <a id="signIn" className="hoverAnim" href={`https://thursday.mrc.org/auth/facebook`}><FBSvg /><span>Sign In with Facebook</span></a>
                     </div>
                 </div>
                 <div className="right-col">

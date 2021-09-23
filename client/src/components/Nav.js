@@ -17,15 +17,15 @@ const Nav = () => {
     return (
         <div className="app-nav-items">
             <div className="harryLogo">
-                <img src="/assets/regular_harry.png" alt="big Harry" />
+                <img src="/assets/many_megan.png" alt="big Harry" />
             </div>
             <div className="nav-header">
                 <h1>
                     <span>
-                        Mrc
+                        Thursday
                     </span>
                     <span>
-                        Intranet
+                        Report
                     </span>
                 </h1>
                 <NavLogo />
@@ -33,12 +33,12 @@ const Nav = () => {
             <nav>
                 <ul>
                     <li className={
-                        "/dashboard" === location.pathname
+                        "/dashboard/main" === location.pathname
                             ? "active blue"
                             : ""
                     }>
                         <Link to="/dashboard/main" >
-                            Web Ads
+                            Generate Report
                         </Link>
                     </li>
                     <li className={

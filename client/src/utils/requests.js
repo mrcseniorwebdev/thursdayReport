@@ -17,7 +17,7 @@ export const appLogout = async () => {
 
 export const generateReport = async (Data) => {
     try {
-        const response = await axios.post('https://0f60-8-18-52-2.ngrok.io/api/report', Data)
+        const response = await axios.post('/api/report', Data)
         return response
     }
     catch (error) {
